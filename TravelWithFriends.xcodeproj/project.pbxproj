@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8376E49216E2A260000898DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49116E2A260000898DD /* UIKit.framework */; };
+		8376E49416E2A260000898DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49316E2A260000898DD /* Foundation.framework */; };
+		8376E49616E2A260000898DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49516E2A260000898DD /* CoreGraphics.framework */; };
+		8376E49C16E2A260000898DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8376E49A16E2A260000898DD /* InfoPlist.strings */; };
+		8376E49E16E2A260000898DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8376E49D16E2A260000898DD /* main.m */; };
+		8376E4A216E2A260000898DD /* TWFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8376E4A116E2A260000898DD /* TWFAppDelegate.m */; };
+		8376E4A416E2A260000898DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376E4A316E2A260000898DD /* Default.png */; };
+		8376E4A616E2A260000898DD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376E4A516E2A260000898DD /* Default@2x.png */; };
+		8376E4A816E2A260000898DD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376E4A716E2A260000898DD /* Default-568h@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8376E48E16E2A260000898DD /* TravelWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8376E49116E2A260000898DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8376E49316E2A260000898DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8376E49516E2A260000898DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8376E49916E2A260000898DD /* TravelWithFriends-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TravelWithFriends-Info.plist"; sourceTree = "<group>"; };
+		8376E49B16E2A260000898DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8376E49D16E2A260000898DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8376E49F16E2A260000898DD /* TravelWithFriends-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TravelWithFriends-Prefix.pch"; sourceTree = "<group>"; };
+		8376E4A016E2A260000898DD /* TWFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWFAppDelegate.h; sourceTree = "<group>"; };
+		8376E4A116E2A260000898DD /* TWFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWFAppDelegate.m; sourceTree = "<group>"; };
+		8376E4A316E2A260000898DD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8376E4A516E2A260000898DD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		8376E4A716E2A260000898DD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8376E48B16E2A260000898DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8376E49216E2A260000898DD /* UIKit.framework in Frameworks */,
+				8376E49416E2A260000898DD /* Foundation.framework in Frameworks */,
+				8376E49616E2A260000898DD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8376E48516E2A260000898DD = {
+			isa = PBXGroup;
+			children = (
+				8376E49716E2A260000898DD /* TravelWithFriends */,
+				8376E49016E2A260000898DD /* Frameworks */,
+				8376E48F16E2A260000898DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8376E48F16E2A260000898DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8376E48E16E2A260000898DD /* TravelWithFriends.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8376E49016E2A260000898DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8376E49116E2A260000898DD /* UIKit.framework */,
+				8376E49316E2A260000898DD /* Foundation.framework */,
+				8376E49516E2A260000898DD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8376E49716E2A260000898DD /* TravelWithFriends */ = {
+			isa = PBXGroup;
+			children = (
+				8376E4A016E2A260000898DD /* TWFAppDelegate.h */,
+				8376E4A116E2A260000898DD /* TWFAppDelegate.m */,
+				8376E49816E2A260000898DD /* Supporting Files */,
+			);
+			path = TravelWithFriends;
+			sourceTree = "<group>";
+		};
+		8376E49816E2A260000898DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8376E49916E2A260000898DD /* TravelWithFriends-Info.plist */,
+				8376E49A16E2A260000898DD /* InfoPlist.strings */,
+				8376E49D16E2A260000898DD /* main.m */,
+				8376E49F16E2A260000898DD /* TravelWithFriends-Prefix.pch */,
+				8376E4A316E2A260000898DD /* Default.png */,
+				8376E4A516E2A260000898DD /* Default@2x.png */,
+				8376E4A716E2A260000898DD /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8376E48D16E2A260000898DD /* TravelWithFriends */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8376E4AB16E2A260000898DD /* Build configuration list for PBXNativeTarget "TravelWithFriends" */;
+			buildPhases = (
+				8376E48A16E2A260000898DD /* Sources */,
+				8376E48B16E2A260000898DD /* Frameworks */,
+				8376E48C16E2A260000898DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TravelWithFriends;
+			productName = TravelWithFriends;
+			productReference = 8376E48E16E2A260000898DD /* TravelWithFriends.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8376E48616E2A260000898DD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TWF;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Justin Warmkessel";
+			};
+			buildConfigurationList = 8376E48916E2A260000898DD /* Build configuration list for PBXProject "TravelWithFriends" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8376E48516E2A260000898DD;
+			productRefGroup = 8376E48F16E2A260000898DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8376E48D16E2A260000898DD /* TravelWithFriends */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8376E48C16E2A260000898DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8376E49C16E2A260000898DD /* InfoPlist.strings in Resources */,
+				8376E4A416E2A260000898DD /* Default.png in Resources */,
+				8376E4A616E2A260000898DD /* Default@2x.png in Resources */,
+				8376E4A816E2A260000898DD /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8376E48A16E2A260000898DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8376E49E16E2A260000898DD /* main.m in Sources */,
+				8376E4A216E2A260000898DD /* TWFAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8376E49A16E2A260000898DD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8376E49B16E2A260000898DD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8376E4A916E2A260000898DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8376E4AA16E2A260000898DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8376E4AC16E2A260000898DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravelWithFriends/TravelWithFriends-Prefix.pch";
+				INFOPLIST_FILE = "TravelWithFriends/TravelWithFriends-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8376E4AD16E2A260000898DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TravelWithFriends/TravelWithFriends-Prefix.pch";
+				INFOPLIST_FILE = "TravelWithFriends/TravelWithFriends-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8376E48916E2A260000898DD /* Build configuration list for PBXProject "TravelWithFriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8376E4A916E2A260000898DD /* Debug */,
+				8376E4AA16E2A260000898DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8376E4AB16E2A260000898DD /* Build configuration list for PBXNativeTarget "TravelWithFriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8376E4AC16E2A260000898DD /* Debug */,
+				8376E4AD16E2A260000898DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8376E48616E2A260000898DD /* Project object */;
+}
