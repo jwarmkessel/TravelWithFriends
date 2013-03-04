@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class TWFLoginViewController;
 @interface TWFMainViewController : UIViewController
+
+@property (strong, nonatomic) TWFLoginViewController *loginViewController;
 
 @end
