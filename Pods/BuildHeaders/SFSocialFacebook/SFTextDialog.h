@@ -1,0 +1,1 @@
+../../SFSocialFacebook/src/SFSocialFacebook/SFTextDialog.h

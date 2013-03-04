@@ -16,6 +16,7 @@
 		8376E4A416E2A260000898DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376E4A316E2A260000898DD /* Default.png */; };
 		8376E4A616E2A260000898DD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376E4A516E2A260000898DD /* Default@2x.png */; };
 		8376E4A816E2A260000898DD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376E4A716E2A260000898DD /* Default-568h@2x.png */; };
+		C1653E0185714A2E947ACAD9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E36F6BDC002E4611AFCA2BAF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		8376E4A316E2A260000898DD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8376E4A516E2A260000898DD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8376E4A716E2A260000898DD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CB3CA87909AF4B7A8E5B37BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		E36F6BDC002E4611AFCA2BAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +45,7 @@
 				8376E49216E2A260000898DD /* UIKit.framework in Frameworks */,
 				8376E49416E2A260000898DD /* Foundation.framework in Frameworks */,
 				8376E49616E2A260000898DD /* CoreGraphics.framework in Frameworks */,
+				C1653E0185714A2E947ACAD9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +58,7 @@
 				8376E49716E2A260000898DD /* TravelWithFriends */,
 				8376E49016E2A260000898DD /* Frameworks */,
 				8376E48F16E2A260000898DD /* Products */,
+				CB3CA87909AF4B7A8E5B37BE /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +76,7 @@
 				8376E49116E2A260000898DD /* UIKit.framework */,
 				8376E49316E2A260000898DD /* Foundation.framework */,
 				8376E49516E2A260000898DD /* CoreGraphics.framework */,
+				E36F6BDC002E4611AFCA2BAF /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,6 +115,7 @@
 				8376E48A16E2A260000898DD /* Sources */,
 				8376E48B16E2A260000898DD /* Frameworks */,
 				8376E48C16E2A260000898DD /* Resources */,
+				88CF8B3FDF84468DA867692D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,6 +166,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88CF8B3FDF84468DA867692D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8376E48A16E2A260000898DD /* Sources */ = {
@@ -240,10 +264,12 @@
 		};
 		8376E4AC16E2A260000898DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB3CA87909AF4B7A8E5B37BE /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravelWithFriends/TravelWithFriends-Prefix.pch";
 				INFOPLIST_FILE = "TravelWithFriends/TravelWithFriends-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -251,10 +277,12 @@
 		};
 		8376E4AD16E2A260000898DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB3CA87909AF4B7A8E5B37BE /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TravelWithFriends/TravelWithFriends-Prefix.pch";
 				INFOPLIST_FILE = "TravelWithFriends/TravelWithFriends-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -279,6 +307,7 @@
 				8376E4AD16E2A260000898DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
