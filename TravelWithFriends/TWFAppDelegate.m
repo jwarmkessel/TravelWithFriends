@@ -7,6 +7,7 @@
 //
 
 #import "TWFAppDelegate.h"
+#import "TWFMainViewController.h"
 
 @implementation TWFAppDelegate
 
@@ -18,9 +19,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Initialize SFSocialFacebook with the desired pemissions.
+    NSArray *permissions = [[NSArray alloc] initWithObjects:@"create_event", @"user_events", @"rsvp_event", @"publish_stream", nil];
+    _socialFacebook = [SFSocialFacebook sharedInstanceWithAppId:@"434318013270211" appSecret:@"d265589f1ef81b3bb3a6a6559d3a66f2" urlSchemeSuffix:nil andPermissions:permissions];
+    [permissions release];
+    
+    //Init the window and the first view controller
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.mainViewController = [[[TWFMainViewController alloc] init] autorelease];
+    self.window.rootViewController = self.mainViewController;
     [self.window makeKeyAndVisible];
     return YES;
 }

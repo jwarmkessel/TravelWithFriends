@@ -16,6 +16,9 @@
 		8376E4A416E2A260000898DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376E4A316E2A260000898DD /* Default.png */; };
 		8376E4A616E2A260000898DD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376E4A516E2A260000898DD /* Default@2x.png */; };
 		8376E4A816E2A260000898DD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8376E4A716E2A260000898DD /* Default-568h@2x.png */; };
+		8381322516E55A34007205D5 /* TWFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381322416E55A34007205D5 /* TWFMainViewController.m */; };
+		8381322816E55A54007205D5 /* TWFMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381322716E55A54007205D5 /* TWFMapViewController.m */; };
+		8381322B16E55AA4007205D5 /* TWFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381322A16E55AA4007205D5 /* TWFLoginViewController.m */; };
 		C1653E0185714A2E947ACAD9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E36F6BDC002E4611AFCA2BAF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,12 @@
 		8376E4A316E2A260000898DD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8376E4A516E2A260000898DD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8376E4A716E2A260000898DD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8381322316E55A34007205D5 /* TWFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFMainViewController.h; sourceTree = "<group>"; };
+		8381322416E55A34007205D5 /* TWFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFMainViewController.m; sourceTree = "<group>"; };
+		8381322616E55A54007205D5 /* TWFMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFMapViewController.h; sourceTree = "<group>"; };
+		8381322716E55A54007205D5 /* TWFMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFMapViewController.m; sourceTree = "<group>"; };
+		8381322916E55AA4007205D5 /* TWFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFLoginViewController.h; sourceTree = "<group>"; };
+		8381322A16E55AA4007205D5 /* TWFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFLoginViewController.m; sourceTree = "<group>"; };
 		CB3CA87909AF4B7A8E5B37BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E36F6BDC002E4611AFCA2BAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,8 +93,14 @@
 		8376E49716E2A260000898DD /* TravelWithFriends */ = {
 			isa = PBXGroup;
 			children = (
+				8381322216E559E4007205D5 /* Custom */,
+				8381322116E559CC007205D5 /* SlidingViews */,
+				8381322016E559C6007205D5 /* Login */,
+				8381321F16E559BC007205D5 /* Map  */,
 				8376E4A016E2A260000898DD /* TWFAppDelegate.h */,
 				8376E4A116E2A260000898DD /* TWFAppDelegate.m */,
+				8381322316E55A34007205D5 /* TWFMainViewController.h */,
+				8381322416E55A34007205D5 /* TWFMainViewController.m */,
 				8376E49816E2A260000898DD /* Supporting Files */,
 			);
 			path = TravelWithFriends;
@@ -103,6 +118,38 @@
 				8376E4A716E2A260000898DD /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8381321F16E559BC007205D5 /* Map  */ = {
+			isa = PBXGroup;
+			children = (
+				8381322616E55A54007205D5 /* TWFMapViewController.h */,
+				8381322716E55A54007205D5 /* TWFMapViewController.m */,
+			);
+			name = "Map ";
+			sourceTree = "<group>";
+		};
+		8381322016E559C6007205D5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8381322916E55AA4007205D5 /* TWFLoginViewController.h */,
+				8381322A16E55AA4007205D5 /* TWFLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		8381322116E559CC007205D5 /* SlidingViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SlidingViews;
+			sourceTree = "<group>";
+		};
+		8381322216E559E4007205D5 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +238,9 @@
 			files = (
 				8376E49E16E2A260000898DD /* main.m in Sources */,
 				8376E4A216E2A260000898DD /* TWFAppDelegate.m in Sources */,
+				8381322516E55A34007205D5 /* TWFMainViewController.m in Sources */,
+				8381322816E55A54007205D5 /* TWFMapViewController.m in Sources */,
+				8381322B16E55AA4007205D5 /* TWFLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
