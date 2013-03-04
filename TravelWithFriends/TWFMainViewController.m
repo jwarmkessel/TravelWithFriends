@@ -7,6 +7,8 @@
 //
 
 #import "TWFMainViewController.h"
+#import "TWFMapViewController.h"
+#import "TWFLoginViewController.h"
 
 @interface TWFMainViewController ()
 
@@ -14,24 +16,22 @@
 
 @implementation TWFMainViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)init {
     if (self) {
-        // Custom initialization
-        NSLog(@"Test init");
+        
+        //Create login view and add to this container.
+        _loginViewController = [[[TWFLoginViewController alloc] init] autorelease];
+        [self.view addSubview:_loginViewController.view];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

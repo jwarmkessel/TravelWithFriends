@@ -7,6 +7,7 @@
 //
 
 #import "TWFLoginViewController.h"
+#import "TWFLoginView.h"
 
 @interface TWFLoginViewController ()
 
@@ -14,11 +15,20 @@
 
 @implementation TWFLoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        //Set frame to the entire window size.
+        self.view.frame = [[UIScreen mainScreen] bounds];
+        [self.view setBackgroundColor:[UIColor clearColor]];
+        
+        //Create a modal view with a pretty radial gradient background and other nice settings.
+        _customView = [[[TWFLoginView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 300.0f, 300.0f)] autorelease];
+        [self.view addSubview:_customView];        
+        [_customView setCenter:self.view.center];
+
+        
+        
     }
     return self;
 }

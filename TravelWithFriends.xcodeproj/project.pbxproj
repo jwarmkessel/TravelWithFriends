@@ -19,6 +19,10 @@
 		8381322516E55A34007205D5 /* TWFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381322416E55A34007205D5 /* TWFMainViewController.m */; };
 		8381322816E55A54007205D5 /* TWFMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381322716E55A54007205D5 /* TWFMapViewController.m */; };
 		8381322B16E55AA4007205D5 /* TWFLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381322A16E55AA4007205D5 /* TWFLoginViewController.m */; };
+		8381322E16E567ED007205D5 /* TWFLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381322D16E567ED007205D5 /* TWFLoginView.m */; };
+		8381323016E56830007205D5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381322F16E56830007205D5 /* QuartzCore.framework */; };
+		8381323216E56836007205D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381323116E56836007205D5 /* MapKit.framework */; };
+		8381323416E56851007205D5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381323316E56851007205D5 /* CoreLocation.framework */; };
 		C1653E0185714A2E947ACAD9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E36F6BDC002E4611AFCA2BAF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +46,11 @@
 		8381322716E55A54007205D5 /* TWFMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFMapViewController.m; sourceTree = "<group>"; };
 		8381322916E55AA4007205D5 /* TWFLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFLoginViewController.h; sourceTree = "<group>"; };
 		8381322A16E55AA4007205D5 /* TWFLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFLoginViewController.m; sourceTree = "<group>"; };
+		8381322C16E567ED007205D5 /* TWFLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFLoginView.h; sourceTree = "<group>"; };
+		8381322D16E567ED007205D5 /* TWFLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFLoginView.m; sourceTree = "<group>"; };
+		8381322F16E56830007205D5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8381323116E56836007205D5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8381323316E56851007205D5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CB3CA87909AF4B7A8E5B37BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E36F6BDC002E4611AFCA2BAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -51,6 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8381323416E56851007205D5 /* CoreLocation.framework in Frameworks */,
+				8381323216E56836007205D5 /* MapKit.framework in Frameworks */,
+				8381323016E56830007205D5 /* QuartzCore.framework in Frameworks */,
 				8376E49216E2A260000898DD /* UIKit.framework in Frameworks */,
 				8376E49416E2A260000898DD /* Foundation.framework in Frameworks */,
 				8376E49616E2A260000898DD /* CoreGraphics.framework in Frameworks */,
@@ -82,6 +94,9 @@
 		8376E49016E2A260000898DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8381323316E56851007205D5 /* CoreLocation.framework */,
+				8381323116E56836007205D5 /* MapKit.framework */,
+				8381322F16E56830007205D5 /* QuartzCore.framework */,
 				8376E49116E2A260000898DD /* UIKit.framework */,
 				8376E49316E2A260000898DD /* Foundation.framework */,
 				8376E49516E2A260000898DD /* CoreGraphics.framework */,
@@ -134,6 +149,8 @@
 			children = (
 				8381322916E55AA4007205D5 /* TWFLoginViewController.h */,
 				8381322A16E55AA4007205D5 /* TWFLoginViewController.m */,
+				8381322C16E567ED007205D5 /* TWFLoginView.h */,
+				8381322D16E567ED007205D5 /* TWFLoginView.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -241,6 +258,7 @@
 				8381322516E55A34007205D5 /* TWFMainViewController.m in Sources */,
 				8381322816E55A54007205D5 /* TWFMapViewController.m in Sources */,
 				8381322B16E55AA4007205D5 /* TWFLoginViewController.m in Sources */,
+				8381322E16E567ED007205D5 /* TWFLoginView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

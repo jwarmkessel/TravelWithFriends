@@ -1,5 +1,5 @@
 //
-//  TWFLoginViewController.h
+//  TWFLoginView.h
 //  TravelWithFriends
 //
 //  Created by Justin Warmkessel on 3/4/13.
@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class TWFLoginView;
 
-@interface TWFLoginViewController : UIViewController {
-    TWFLoginView *_customView;
-}
+@interface TWFLoginView : UIView
 
 @end

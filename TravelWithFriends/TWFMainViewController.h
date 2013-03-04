@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class TWFLoginViewController;
-@interface TWFMainViewController : UIViewController
+@class TWFMapViewController;
 
-@property (strong, nonatomic) TWFLoginViewController *loginViewController;
+@interface TWFMainViewController : UIViewController {
+    TWFLoginViewController *_loginViewController;
+}
+
+@property (strong) TWFMapViewController *mapViewController;
 
 @end
