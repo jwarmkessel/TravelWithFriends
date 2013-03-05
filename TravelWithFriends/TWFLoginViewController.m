@@ -26,6 +26,8 @@
         _customView = [[[TWFLoginView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 300.0f, 300.0f)] autorelease];
         [self.view addSubview:_customView];        
         [_customView setCenter:self.view.center];
+        
+        NSLog(@"blah");
     }
     return self;
 }
