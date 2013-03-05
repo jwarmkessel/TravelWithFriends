@@ -15,6 +15,6 @@
     TWFLoginViewController *_loginViewController;
 }
 
-@property (strong) TWFMapViewController *mapViewController;
+@property (retain, nonatomic) TWFMapViewController *mapViewController;
 
 @end

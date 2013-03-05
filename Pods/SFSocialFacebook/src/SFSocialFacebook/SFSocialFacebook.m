@@ -236,7 +236,8 @@ static SFSocialFacebook *_instance;
 
 
 - (void)getAppAccessTokenWithSuccess:(void (^)(NSString *))successBlock failure:(SFFailureBlock)failureBlock
-{   
+{
+    NSLog(@"IS THIS EVER CALLED?");
     [SFURLRequest requestWithURL:[NSString stringWithFormat:@"https://graph.facebook.com/oauth/access_token?client_id=%@&client_secret=%@&grant_type=client_credentials", _app.objectId, _appSecret] 
                          success:^(NSData *receivedData) {
                              NSString *response = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
@@ -838,16 +839,19 @@ static SFSocialFacebook *_instance;
 
 - (SFFacebookRequest *)facebookRequestWithGraphPath:(NSString *)graphPath needsLogin:(BOOL)needsLogin success:(void (^)(id))successBlock failure:(void (^)(NSError *))failureBlock cancel:(void (^)())cancelBlock
 {
+    NSLog(@"This is the access token %@", _appAccessToken);
     return [self facebookRequestWithGraphPath:graphPath params:[NSMutableDictionary dictionary] httpMethod:@"GET" needsLogin:needsLogin success:successBlock failure:failureBlock cancel:cancelBlock];
 }
 
 - (SFFacebookRequest *)facebookRequestWithGraphPath:(NSString *)graphPath params:(NSMutableDictionary *)params needsLogin:(BOOL)needsLogin success:(void (^)(id))successBlock failure:(void (^)(NSError *))failureBlock cancel:(void (^)())cancelBlock
 {
+    NSLog(@"This is the access token %@", _appAccessToken);
     return [self facebookRequestWithGraphPath:graphPath params:params httpMethod:@"GET" needsLogin:needsLogin success:successBlock failure:failureBlock cancel:cancelBlock];
 }
 
 - (SFFacebookRequest *)facebookRequestWithGraphPath:(NSString *)graphPath params:(NSMutableDictionary *)params httpMethod:(NSString *)httpMethod needsLogin:(BOOL)needsLogin success:(void (^)(id))successBlock failure:(void (^)(NSError *))failureBlock cancel:(void (^)())cancelBlock
 {
+    NSLog(@"Is this the one? is the access token %@", _appAccessToken);
     if (!needsLogin && _appAccessToken) {
         [params setObject:_appAccessToken forKey:@"access_token"];
     }

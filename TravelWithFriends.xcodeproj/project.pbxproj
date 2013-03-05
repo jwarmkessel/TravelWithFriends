@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8321B92116E6A85A003DFDCB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92016E6A85A003DFDCB /* MobileCoreServices.framework */; };
+		8321B92316E6A8EF003DFDCB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92216E6A8EE003DFDCB /* SystemConfiguration.framework */; };
+		8321B92516E6A905003DFDCB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92416E6A905003DFDCB /* Security.framework */; };
+		8321B92716E6A91D003DFDCB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92616E6A91D003DFDCB /* CFNetwork.framework */; };
 		8352B38B16E579640027A361 /* Facebook-connect-btn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8352B38A16E579640027A361 /* Facebook-connect-btn.jpg */; };
 		8376E49216E2A260000898DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49116E2A260000898DD /* UIKit.framework */; };
 		8376E49416E2A260000898DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49316E2A260000898DD /* Foundation.framework */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8321B92016E6A85A003DFDCB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8321B92216E6A8EE003DFDCB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8321B92416E6A905003DFDCB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8321B92616E6A91D003DFDCB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8352B38A16E579640027A361 /* Facebook-connect-btn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Facebook-connect-btn.jpg"; path = "../../Facebook-connect-btn.jpg"; sourceTree = "<group>"; };
 		8376E48E16E2A260000898DD /* TravelWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8376E49116E2A260000898DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -62,6 +70,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8321B92716E6A91D003DFDCB /* CFNetwork.framework in Frameworks */,
+				8321B92516E6A905003DFDCB /* Security.framework in Frameworks */,
+				8321B92316E6A8EF003DFDCB /* SystemConfiguration.framework in Frameworks */,
+				8321B92116E6A85A003DFDCB /* MobileCoreServices.framework in Frameworks */,
 				8381323416E56851007205D5 /* CoreLocation.framework in Frameworks */,
 				8381323216E56836007205D5 /* MapKit.framework in Frameworks */,
 				8381323016E56830007205D5 /* QuartzCore.framework in Frameworks */,
@@ -112,6 +124,10 @@
 		8376E49016E2A260000898DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8321B92616E6A91D003DFDCB /* CFNetwork.framework */,
+				8321B92416E6A905003DFDCB /* Security.framework */,
+				8321B92216E6A8EE003DFDCB /* SystemConfiguration.framework */,
+				8321B92016E6A85A003DFDCB /* MobileCoreServices.framework */,
 				8381323316E56851007205D5 /* CoreLocation.framework */,
 				8381323116E56836007205D5 /* MapKit.framework */,
 				8381322F16E56830007205D5 /* QuartzCore.framework */,

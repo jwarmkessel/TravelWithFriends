@@ -10,6 +10,7 @@
 #import "TWFMainViewController.h"
 
 @implementation TWFAppDelegate
+@synthesize socialFacebook = _socialFacebook;
 
 - (void)dealloc
 {
@@ -19,9 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //Initialize SFSocialFacebook with the desired pemissions.
-    NSArray *permissions = [[NSArray alloc] initWithObjects:@"create_event", @"user_events", @"rsvp_event", @"publish_stream", nil];
-    _socialFacebook = [SFSocialFacebook sharedInstanceWithAppId:@"434318013270211" appSecret:@"d265589f1ef81b3bb3a6a6559d3a66f2" urlSchemeSuffix:nil andPermissions:permissions];
+    NSArray *permissions = [[NSArray alloc] initWithObjects:@"friends_about_me", @"friends_photos", @"create_event", @"user_events", @"rsvp_event", @"publish_stream", nil];
+    _socialFacebook = [SFSocialFacebook sharedInstanceWithAppId:@"362860400495022" appSecret:@"83f4734c913970a3a1e85057f15bc609" urlSchemeSuffix:nil andPermissions:permissions];
     [permissions release];
     
     //Init the window and the first view controller
@@ -31,6 +31,11 @@
     self.window.rootViewController = self.mainViewController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+// SFSocialFacebook For 4.2+ support
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [_socialFacebook handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
