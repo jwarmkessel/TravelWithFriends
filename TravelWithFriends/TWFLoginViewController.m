@@ -27,7 +27,7 @@
         [self.view addSubview:_customView];        
         [_customView setCenter:self.view.center];
         
-        NSLog(@"blah");
+     
     }
     return self;
 }
