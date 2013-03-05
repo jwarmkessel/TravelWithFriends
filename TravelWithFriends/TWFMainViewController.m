@@ -20,7 +20,7 @@
     if (self) {
         
         //Create login view and add to this container.
-        _loginViewController = [[[TWFLoginViewController alloc] init] autorelease];
+        _loginViewController = [[TWFLoginViewController alloc] init];
         [self.view addSubview:_loginViewController.view];
     }
     return self;

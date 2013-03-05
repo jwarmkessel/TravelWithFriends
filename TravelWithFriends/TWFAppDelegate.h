@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SFSocialFacebook.h>
 
-@class SFSocialFacebook;
 @class TWFMainViewController;
 
 @interface TWFAppDelegate : UIResponder <UIApplicationDelegate>

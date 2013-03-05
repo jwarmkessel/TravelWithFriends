@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8352B38B16E579640027A361 /* Facebook-connect-btn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8352B38A16E579640027A361 /* Facebook-connect-btn.jpg */; };
 		8376E49216E2A260000898DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49116E2A260000898DD /* UIKit.framework */; };
 		8376E49416E2A260000898DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49316E2A260000898DD /* Foundation.framework */; };
 		8376E49616E2A260000898DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49516E2A260000898DD /* CoreGraphics.framework */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8352B38A16E579640027A361 /* Facebook-connect-btn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Facebook-connect-btn.jpg"; path = "../../Facebook-connect-btn.jpg"; sourceTree = "<group>"; };
 		8376E48E16E2A260000898DD /* TravelWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8376E49116E2A260000898DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8376E49316E2A260000898DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,6 +75,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8352B38816E577800027A361 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8352B38916E577880027A361 /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8352B38916E577880027A361 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8352B38A16E579640027A361 /* Facebook-connect-btn.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		8376E48516E2A260000898DD = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +126,7 @@
 		8376E49716E2A260000898DD /* TravelWithFriends */ = {
 			isa = PBXGroup;
 			children = (
+				8352B38816E577800027A361 /* Resources */,
 				8381322216E559E4007205D5 /* Custom */,
 				8381322116E559CC007205D5 /* SlidingViews */,
 				8381322016E559C6007205D5 /* Login */,
@@ -226,6 +245,7 @@
 				8376E4A416E2A260000898DD /* Default.png in Resources */,
 				8376E4A616E2A260000898DD /* Default@2x.png in Resources */,
 				8376E4A816E2A260000898DD /* Default-568h@2x.png in Resources */,
+				8352B38B16E579640027A361 /* Facebook-connect-btn.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

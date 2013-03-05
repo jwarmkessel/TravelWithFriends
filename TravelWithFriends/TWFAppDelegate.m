@@ -8,7 +8,6 @@
 
 #import "TWFAppDelegate.h"
 #import "TWFMainViewController.h"
-#import "SFSocialFacebook.h"
 
 @implementation TWFAppDelegate
 
