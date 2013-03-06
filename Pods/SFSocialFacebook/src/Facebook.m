@@ -172,6 +172,7 @@ static void *finishedContext = @"finishedContext";
     [params setValue:@"json" forKey:@"format"];
     [params setValue:kSDK forKey:@"sdk"];
     [params setValue:kSDKVersion forKey:@"sdk_version"];
+    
     if ([self isSessionValid]) {
         [params setValue:self.accessToken forKey:@"access_token"];
     }
@@ -578,6 +579,7 @@ static void *finishedContext = @"finishedContext";
  */
 - (FBRequest*)requestWithGraphPath:(NSString *)graphPath
                        andDelegate:(id <FBRequestDelegate>)delegate {
+    NSLog(@"Facebook.m requestWithGraphPath, graphPath: %@", graphPath);
     
     return [self requestWithGraphPath:graphPath
                             andParams:[NSMutableDictionary dictionary]

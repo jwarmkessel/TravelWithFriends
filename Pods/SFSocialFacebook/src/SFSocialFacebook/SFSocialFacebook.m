@@ -237,7 +237,6 @@ static SFSocialFacebook *_instance;
 
 - (void)getAppAccessTokenWithSuccess:(void (^)(NSString *))successBlock failure:(SFFailureBlock)failureBlock
 {
-    NSLog(@"IS THIS EVER CALLED?");
     [SFURLRequest requestWithURL:[NSString stringWithFormat:@"https://graph.facebook.com/oauth/access_token?client_id=%@&client_secret=%@&grant_type=client_credentials", _app.objectId, _appSecret] 
                          success:^(NSData *receivedData) {
                              NSString *response = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
