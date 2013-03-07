@@ -22,7 +22,6 @@
 {
     NSArray *permissions = [[NSArray alloc] initWithObjects:@"friends_about_me", @"friends_photos", @"create_event", @"user_events", @"rsvp_event", @"publish_stream", nil];
     _socialFacebook = [SFSocialFacebook sharedInstanceWithAppId:@"362860400495022" appSecret:@"83f4734c913970a3a1e85057f15bc609" urlSchemeSuffix:nil andPermissions:permissions];
-
     
     //Init the window and the first view controller
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];

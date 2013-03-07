@@ -838,19 +838,16 @@ static SFSocialFacebook *_instance;
 
 - (SFFacebookRequest *)facebookRequestWithGraphPath:(NSString *)graphPath needsLogin:(BOOL)needsLogin success:(void (^)(id))successBlock failure:(void (^)(NSError *))failureBlock cancel:(void (^)())cancelBlock
 {
-    NSLog(@"This is the access token %@", _appAccessToken);
     return [self facebookRequestWithGraphPath:graphPath params:[NSMutableDictionary dictionary] httpMethod:@"GET" needsLogin:needsLogin success:successBlock failure:failureBlock cancel:cancelBlock];
 }
 
 - (SFFacebookRequest *)facebookRequestWithGraphPath:(NSString *)graphPath params:(NSMutableDictionary *)params needsLogin:(BOOL)needsLogin success:(void (^)(id))successBlock failure:(void (^)(NSError *))failureBlock cancel:(void (^)())cancelBlock
 {
-    NSLog(@"This is the access token %@", _appAccessToken);
     return [self facebookRequestWithGraphPath:graphPath params:params httpMethod:@"GET" needsLogin:needsLogin success:successBlock failure:failureBlock cancel:cancelBlock];
 }
 
 - (SFFacebookRequest *)facebookRequestWithGraphPath:(NSString *)graphPath params:(NSMutableDictionary *)params httpMethod:(NSString *)httpMethod needsLogin:(BOOL)needsLogin success:(void (^)(id))successBlock failure:(void (^)(NSError *))failureBlock cancel:(void (^)())cancelBlock
 {
-    NSLog(@"Is this the one? is the access token %@", _appAccessToken);
     if (!needsLogin && _appAccessToken) {
         [params setObject:_appAccessToken forKey:@"access_token"];
     }
@@ -922,6 +919,8 @@ static SFSocialFacebook *_instance;
         int pos = [nextPageUrl rangeOfString:@".com/"].location + 5;
         nextPageUrl = [nextPageUrl substringFromIndex:pos];
     }
+    
+    NSLog(@"IS THIS WHERE nextPageUrl gets set Everywhere?");
     return nextPageUrl;
 }
 

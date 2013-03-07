@@ -11,6 +11,7 @@
 		8321B92316E6A8EF003DFDCB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92216E6A8EE003DFDCB /* SystemConfiguration.framework */; };
 		8321B92516E6A905003DFDCB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92416E6A905003DFDCB /* Security.framework */; };
 		8321B92716E6A91D003DFDCB /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92616E6A91D003DFDCB /* CFNetwork.framework */; };
+		8321B92A16E6C354003DFDCB /* TWFSocialFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8321B92916E6C354003DFDCB /* TWFSocialFriendListViewController.m */; };
 		8352B38B16E579640027A361 /* Facebook-connect-btn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8352B38A16E579640027A361 /* Facebook-connect-btn.jpg */; };
 		8376E49216E2A260000898DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49116E2A260000898DD /* UIKit.framework */; };
 		8376E49416E2A260000898DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E49316E2A260000898DD /* Foundation.framework */; };
@@ -36,6 +37,8 @@
 		8321B92216E6A8EE003DFDCB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8321B92416E6A905003DFDCB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8321B92616E6A91D003DFDCB /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8321B92816E6C354003DFDCB /* TWFSocialFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFSocialFriendListViewController.h; sourceTree = "<group>"; };
+		8321B92916E6C354003DFDCB /* TWFSocialFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFSocialFriendListViewController.m; sourceTree = "<group>"; };
 		8352B38A16E579640027A361 /* Facebook-connect-btn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Facebook-connect-btn.jpg"; path = "../../Facebook-connect-btn.jpg"; sourceTree = "<group>"; };
 		8376E48E16E2A260000898DD /* TravelWithFriends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelWithFriends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8376E49116E2A260000898DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -186,6 +189,8 @@
 				8381322A16E55AA4007205D5 /* TWFLoginViewController.m */,
 				8381322C16E567ED007205D5 /* TWFLoginView.h */,
 				8381322D16E567ED007205D5 /* TWFLoginView.m */,
+				8321B92816E6C354003DFDCB /* TWFSocialFriendListViewController.h */,
+				8321B92916E6C354003DFDCB /* TWFSocialFriendListViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				8381322816E55A54007205D5 /* TWFMapViewController.m in Sources */,
 				8381322B16E55AA4007205D5 /* TWFLoginViewController.m in Sources */,
 				8381322E16E567ED007205D5 /* TWFLoginView.m in Sources */,
+				8321B92A16E6C354003DFDCB /* TWFSocialFriendListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

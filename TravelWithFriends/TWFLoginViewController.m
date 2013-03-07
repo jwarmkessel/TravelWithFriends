@@ -9,6 +9,8 @@
 #import "TWFLoginViewController.h"
 #import "TWFLoginView.h"
 #import "TWFAppDelegate.h"
+#import <SFURLRequest.h>
+#import <SFFacebookRequest.h>
 
 @interface TWFLoginViewController ()
 - (void)handlefbButton:sender;
@@ -58,7 +60,7 @@
 - (void)handlefbButton:sender {
     TWFAppDelegate *appDelegate = (TWFAppDelegate*) [[UIApplication sharedApplication] delegate];
     
-    NSMutableDictionary *friends = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"id, name",@"fields",nil];
+    NSMutableDictionary *friends = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"id, name, picture",@"fields",nil];
     
     [appDelegate.socialFacebook
      getAppAccessTokenWithSuccess:^(NSString* success) {
@@ -69,37 +71,18 @@
               NSLog(@"Facebook Login successful!");
               
               [appDelegate.socialFacebook
-               friendsWithPageSize:100
-               success:^(NSArray *array, NSString *nextPageUrl) {
-                   
-                   for(int i=0;i<array.count;i++)
-                   {
-                       id item;
-                       item = [array objectAtIndex:i];
-                       NSLog(@"Found an Item: %@",item);
-                   }
-                   
-                   [appDelegate.socialFacebook
-                    facebookRequestWithGraphPath:nextPageUrl
-                    params:friends httpMethod:@"GET"
-                    needsLogin:NO
-                    success:^(id success) {
-                        NSLog(@"Graph Request %@", success);
-                    }
-                    failure:^(NSError *error) {
-                        NSLog(@"error %@", error);
-                    }
-                    cancel:^{
-                        NSLog(@"cancelled");
-                    }];
-
+               facebookRequestWithGraphPath:@"me/friends"
+               params:friends httpMethod:@"GET"
+               needsLogin:NO
+               success:^(id success) {
+                   NSLog(@"Graph Request %@", success);
                }
                failure:^(NSError *error) {
-                   NSLog(@"failure %@", error);
+                   NSLog(@"error %@", error);
                }
-               cancel:^(void) {
+               cancel:^{
                    NSLog(@"cancelled");
-               }];   
+               }];
           }
           failure:^(BOOL finished) {
               NSLog(@"Login Failed");
