@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+@class TWFSocialFriendDataController;
 @class TWFLoginView;
+@class TWFSocialFriendListViewController;
 
 @interface TWFLoginViewController : UIViewController {
     TWFLoginView *_customView;
 }
+
+@property (strong, nonatomic) TWFSocialFriendDataController *socialFriendDataController;
+@property (strong, nonatomic) TWFSocialFriendListViewController *socialFriendListViewController;
 
 @end

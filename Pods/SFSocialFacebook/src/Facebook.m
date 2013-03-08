@@ -213,7 +213,6 @@ static void *finishedContext = @"finishedContext";
     NSString* test = [NSString stringWithFormat:@"fb%@%@://authorize",
                       _appId,
                       _urlSchemeSuffix ? _urlSchemeSuffix : @""];
-    NSLog(@"getOwnBaseUrl -----------------> %@", test);
     
     return test;
 }
@@ -656,9 +655,8 @@ static void *finishedContext = @"finishedContext";
                      andHttpMethod:(NSString *)httpMethod
                        andDelegate:(id <FBRequestDelegate>)delegate {
     
-    NSLog(@"graphPath----------------THIS IS THE GRAPHPATH in Facebook.m file %@", graphPath);
     NSString * fullURL = [kGraphBaseURL stringByAppendingString:graphPath];
-        NSLog(@"fullURL----------------THIS IS THE GRAPHPATH with full URL in Facebook.m file %@", fullURL);
+    
     return [self openUrl:fullURL
                   params:params
               httpMethod:httpMethod

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8318C22216EAA442008C9C55 /* TWFSocialFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8318C22116EAA442008C9C55 /* TWFSocialFriendCell.m */; };
 		8321B92116E6A85A003DFDCB /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92016E6A85A003DFDCB /* MobileCoreServices.framework */; };
 		8321B92316E6A8EF003DFDCB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92216E6A8EE003DFDCB /* SystemConfiguration.framework */; };
 		8321B92516E6A905003DFDCB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8321B92416E6A905003DFDCB /* Security.framework */; };
@@ -29,10 +30,14 @@
 		8381323016E56830007205D5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381322F16E56830007205D5 /* QuartzCore.framework */; };
 		8381323216E56836007205D5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381323116E56836007205D5 /* MapKit.framework */; };
 		8381323416E56851007205D5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8381323316E56851007205D5 /* CoreLocation.framework */; };
+		8385058616E823D00051D6C9 /* TWFSocialFriendDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8385058516E823D00051D6C9 /* TWFSocialFriendDataController.m */; };
+		8385058916E823EB0051D6C9 /* TWFSocialFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8385058816E823EB0051D6C9 /* TWFSocialFriend.m */; };
 		C1653E0185714A2E947ACAD9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E36F6BDC002E4611AFCA2BAF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8318C22016EAA442008C9C55 /* TWFSocialFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFSocialFriendCell.h; sourceTree = "<group>"; };
+		8318C22116EAA442008C9C55 /* TWFSocialFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFSocialFriendCell.m; sourceTree = "<group>"; };
 		8321B92016E6A85A003DFDCB /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8321B92216E6A8EE003DFDCB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8321B92416E6A905003DFDCB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -64,6 +69,10 @@
 		8381322F16E56830007205D5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8381323116E56836007205D5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8381323316E56851007205D5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8385058416E823D00051D6C9 /* TWFSocialFriendDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFSocialFriendDataController.h; sourceTree = "<group>"; };
+		8385058516E823D00051D6C9 /* TWFSocialFriendDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFSocialFriendDataController.m; sourceTree = "<group>"; };
+		8385058716E823EB0051D6C9 /* TWFSocialFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWFSocialFriend.h; sourceTree = "<group>"; };
+		8385058816E823EB0051D6C9 /* TWFSocialFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWFSocialFriend.m; sourceTree = "<group>"; };
 		CB3CA87909AF4B7A8E5B37BE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		E36F6BDC002E4611AFCA2BAF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -191,6 +200,12 @@
 				8381322D16E567ED007205D5 /* TWFLoginView.m */,
 				8321B92816E6C354003DFDCB /* TWFSocialFriendListViewController.h */,
 				8321B92916E6C354003DFDCB /* TWFSocialFriendListViewController.m */,
+				8385058416E823D00051D6C9 /* TWFSocialFriendDataController.h */,
+				8385058516E823D00051D6C9 /* TWFSocialFriendDataController.m */,
+				8385058716E823EB0051D6C9 /* TWFSocialFriend.h */,
+				8385058816E823EB0051D6C9 /* TWFSocialFriend.m */,
+				8318C22016EAA442008C9C55 /* TWFSocialFriendCell.h */,
+				8318C22116EAA442008C9C55 /* TWFSocialFriendCell.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -301,6 +316,9 @@
 				8381322B16E55AA4007205D5 /* TWFLoginViewController.m in Sources */,
 				8381322E16E567ED007205D5 /* TWFLoginView.m in Sources */,
 				8321B92A16E6C354003DFDCB /* TWFSocialFriendListViewController.m in Sources */,
+				8385058616E823D00051D6C9 /* TWFSocialFriendDataController.m in Sources */,
+				8385058916E823EB0051D6C9 /* TWFSocialFriend.m in Sources */,
+				8318C22216EAA442008C9C55 /* TWFSocialFriendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

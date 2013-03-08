@@ -16,7 +16,7 @@
 
 #import "SFSocialFacebook.h"
 #import "SFUtil.h"
-#import "SBJSON.h"
+//#import "SBJSON.h"
 #import "SFURLRequest.h"
 #import "SFComment.h"
 #import "SFTextDialog.h"

@@ -107,6 +107,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
+    NSLog(@"This should be used by SFSocialfacebook to get the response from FB: %@", response);
     // This method is called when the server has determined that it
     // has enough information to create the NSURLResponse.
     

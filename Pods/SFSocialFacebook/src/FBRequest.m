@@ -62,7 +62,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
     request.params = params;
     request.connection = nil;
     request.responseText = nil;
-    NSLog(@"IS THIS EVER CALLED THE ReQuest: %@", request);    
+
     return request;
 }
 
@@ -190,6 +190,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
     NSString* responseString = [[[NSString alloc] initWithData:data
                                                       encoding:NSUTF8StringEncoding]
                                 autorelease];
+    
     if ([responseString isEqualToString:@"true"]) {
         return [NSDictionary dictionaryWithObject:@"true" forKey:@"result"];
     } else if ([responseString isEqualToString:@"false"]) {
@@ -205,6 +206,7 @@ static const NSTimeInterval kTimeoutInterval = 180.0;
     
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
     id result = [jsonParser objectWithString:responseString];
+    NSLog(@"End of the parsejsonresponse method result: %@", result);
     [jsonParser release];
 
     if (result == nil) {

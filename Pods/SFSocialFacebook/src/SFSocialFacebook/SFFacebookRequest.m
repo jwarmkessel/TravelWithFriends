@@ -179,7 +179,7 @@
     
     _isFinished = YES; // This line must be first
     
-    SFDLog(@"Request loaded with result: %@", result);
+    SFDLog(@"Request loaded with result BLAH BLAH: %@", result);
     
     if (_successBlock) {
         _successBlock(result);

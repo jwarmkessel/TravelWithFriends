@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TWFSocialFriendListViewController : UITableViewController
+@interface TWFSocialFriendListViewController : UITableViewController <UITableViewDelegate>
+
+@property (copy, nonatomic) NSMutableArray *socialFriendList;
+
+- (id)initWithFriendsList:(NSMutableArray *)socialFriendList;
 
 @end

@@ -9,8 +9,8 @@
 #import "TWFLoginViewController.h"
 #import "TWFLoginView.h"
 #import "TWFAppDelegate.h"
-#import <SFURLRequest.h>
-#import <SFFacebookRequest.h>
+#import "TWFSocialFriendDataController.h"
+#import "TWFSocialFriendListViewController.h"
 
 @interface TWFLoginViewController ()
 - (void)handlefbButton:sender;
@@ -25,6 +25,7 @@
         //Set frame to the entire window size.
         self.view.frame = [[UIScreen mainScreen] bounds];
         [self.view setBackgroundColor:[UIColor clearColor]];
+        self.socialFriendDataController = [[TWFSocialFriendDataController alloc]init];
     }
     return self;
 }
@@ -57,6 +58,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Facebook connect. Then get and load list of friends.
 - (void)handlefbButton:sender {
     TWFAppDelegate *appDelegate = (TWFAppDelegate*) [[UIApplication sharedApplication] delegate];
     
@@ -68,28 +70,52 @@
          
          [appDelegate.socialFacebook
           loginWithSuccess:^(void){
-              NSLog(@"Facebook Login successful!");
-              
+       
               [appDelegate.socialFacebook
                facebookRequestWithGraphPath:@"me/friends"
                params:friends httpMethod:@"GET"
                needsLogin:NO
                success:^(id success) {
-                   NSLog(@"Graph Request %@", success);
+                   NSMutableArray *friends = [[[NSMutableArray alloc]init] autorelease];
+                   NSString *identity;
+                   NSString *name;
+                   NSString *profilePicUrl;
+
+                   NSArray *list = [success objectForKey:@"data"];
+
+                   for (NSDictionary *data in list)
+                   {
+                       identity = [data objectForKey:@"id"];
+                       name = [data objectForKey:@"name"];
+                       profilePicUrl = [[[data objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
+                       NSURL *url = [[NSURL alloc]initWithString:profilePicUrl];
+
+                       
+                       [self.socialFriendDataController addFriendWithIdentiyNum:identity name:name profilePicUrl:url];
+                   }
+                   
+                   self.socialFriendListViewController = [[TWFSocialFriendListViewController alloc] initWithFriendsList:self.socialFriendDataController.socialFriendList];
+                   
+                
+                   [self.view addSubview:self.socialFriendListViewController.view];
+                   [self.view bringSubviewToFront:self.socialFriendListViewController.view];
+                   
+
                }
                failure:^(NSError *error) {
-                   NSLog(@"error %@", error);
+                   NSLog(@"Request FB friends Error %@", error);
                }
                cancel:^{
-                   NSLog(@"cancelled");
+                   NSLog(@"cancelled FB friends Error");
                }];
+              
           }
           failure:^(BOOL finished) {
-              NSLog(@"Login Failed");
+              NSLog(@"LoginWithSuccess Failed");
           }];
      }
      failure:^(NSError* error) {
-         NSLog(@"Error %@", error);
+         NSLog(@"getAppAccessTokenWithSuccess Error %@", error);
      }];
 }
 
@@ -97,4 +123,5 @@
     
     NSLog(@"Login finished");
 }
+
 @end
