@@ -80,8 +80,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSInteger theCount;
     // Return the number of rows in the section.
-    return _socialFriendList.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        theCount = self.filteredFriendArray.count;
+    } else {
+        theCount = _socialFriendList.count;
+    }
+    return theCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -187,7 +193,7 @@
     
 }
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    NSLog(@"shouldReloadTableForSearchString");
+    NSLog(@"shouldReloadTableForSearchScope");
     // Tells the table data source to reload when scope bar selection changes
 
     [self filterContentForSearchText:self.searchDisplayContr.searchBar.text scope:
@@ -197,7 +203,7 @@
     return YES;
 }
 - (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller {
-    NSLog(@"shouldReloadTableForSearchString");
+    NSLog(@"searchDisplayControllerDidBeginSearch");
 }
 
 #pragma mark Content Filtering
@@ -205,10 +211,22 @@
     // Update the filtered array based on the search text and scope.
     // Remove all objects from the filtered search array
     [self.filteredFriendArray removeAllObjects];
-    // Filter the array using NSPredicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.firstName contains[cd] %@",searchText];
     
-    self.filteredFriendArray = [NSMutableArray arrayWithArray:[_socialFriendList filteredArrayUsingPredicate:predicate]];
+    for (TWFSocialFriend *friend in _socialFriendList)
+    {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                                  @"(SELF contains[cd] %@)", searchText];
+        [friend.firstName compare:searchText options:NSCaseInsensitiveSearch];
+
+        BOOL resultName = [predicate evaluateWithObject:friend.firstName];
+        
+        if(resultName)
+        {
+            [self.filteredFriendArray addObject:friend];
+        }
+    }
+
+    NSLog(@" new filtered array count %lu", (long int)[self.filteredFriendArray count]);
 }
 
 
