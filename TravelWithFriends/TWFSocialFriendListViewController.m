@@ -15,11 +15,10 @@
 @end
 
 @implementation TWFSocialFriendListViewController
-@synthesize socialFriendList = _socialFriendList;
+@synthesize socialFriendList = _socialFriendList, filteredFriendArray = _filteredFriendArray;
 
 - (id)initWithFriendsList:(NSMutableArray *)socialFriendList {
     if (self) {
-        self.view.frame = [[UIScreen mainScreen] bounds];
         _socialFriendList = socialFriendList;
     }
     return self;
@@ -28,7 +27,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"socialFriendList arg %lu", (unsigned long)[self.socialFriendList count]);
 
+    // Initialize the filteredCandyArray with a capacity equal to the candyArray's capacity
+    NSLog(@"socialFriendlist count %lu", (unsigned long)_socialFriendList.count);
+    self.filteredFriendArray = [NSMutableArray arrayWithCapacity:[_socialFriendList count]];
+    
+
+    UISearchBar * theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,0,320,40)]; // frame has no effect.
+    theSearchBar.delegate = self;
+    //    if ( !searchBarPlaceHolder ) {
+    //        searchBarPlaceHolder = @"What are you looking for?";
+    //    }
+    theSearchBar.placeholder = @"blah";
+    theSearchBar.showsCancelButton = YES;
+    
+    
+    self.tableView.tableHeaderView = theSearchBar;
+    
+    [self.searchDisplayController setActive:YES animated:YES];
+    [theSearchBar becomeFirstResponder];
+    
+    UISearchDisplayController *searchCon = [[UISearchDisplayController alloc]
+                                            initWithSearchBar:theSearchBar
+                                            contentsController:self ];
+    self.searchDisplayContr = searchCon;
+    [searchCon release];
+    self.searchDisplayContr.delegate = self;
+    self.searchDisplayContr.searchResultsDataSource = self;
+    self.searchDisplayContr.searchResultsDelegate = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -70,9 +98,15 @@
         [cell addSubview:nameTxt];
         [nameTxt setTag:1];
     }
-    // Create a new Candy Object
-
-    TWFSocialFriend *friend = [self.socialFriendList objectAtIndex:indexPath.row];
+   
+    TWFSocialFriend *friend;
+    
+    // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        friend = [self.filteredFriendArray objectAtIndex:indexPath.row];
+    } else {
+        friend = [self.socialFriendList objectAtIndex:indexPath.row];
+    }
 
     // Configure the cell
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
@@ -136,5 +170,46 @@
      [detailViewController release];
      */
 }
+
+#pragma mark - UISearchBarDelegate UISearchDisplayDelegate
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    NSLog(@"shouldReloadTableForSearchString");
+    // Tells the table data source to reload when text changes
+
+    // Tells the table data source to reload when text changes
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayContr.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayContr.searchBar selectedScopeButtonIndex]]];
+    // Return YES to cause the search result table view to be reloaded.
+    
+    return YES;
+    
+    
+}
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    NSLog(@"shouldReloadTableForSearchString");
+    // Tells the table data source to reload when scope bar selection changes
+
+    [self filterContentForSearchText:self.searchDisplayContr.searchBar.text scope:
+     [[self.searchDisplayContr.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // Return YES to cause the search result table view to be reloaded.
+    
+    return YES;
+}
+- (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller {
+    NSLog(@"shouldReloadTableForSearchString");
+}
+
+#pragma mark Content Filtering
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    // Update the filtered array based on the search text and scope.
+    // Remove all objects from the filtered search array
+    [self.filteredFriendArray removeAllObjects];
+    // Filter the array using NSPredicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.firstName contains[cd] %@",searchText];
+    
+    self.filteredFriendArray = [NSMutableArray arrayWithArray:[_socialFriendList filteredArrayUsingPredicate:predicate]];
+}
+
 
 @end

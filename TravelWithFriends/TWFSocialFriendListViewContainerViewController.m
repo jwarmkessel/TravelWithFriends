@@ -16,10 +16,12 @@
 
 - (id)init {
     if (self) {
-        //Initalize datacontroller
+        //Initalize datacontroller and social friends table view.
         self.socialFriendDataController = [[TWFSocialFriendDataController alloc]init];
         
         self.socialFriendListViewController = [[TWFSocialFriendListViewController alloc] initWithFriendsList:self.socialFriendDataController.socialFriendList];
+        
+        //[self setSearchDisplayController:self.searchDisplayController];
     }
     return self;
 }
@@ -30,6 +32,8 @@
 	// Do any additional setup after loading the view.
     [self.view addSubview:self.socialFriendListViewController.view];
     [self.view bringSubviewToFront:self.socialFriendListViewController.view];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

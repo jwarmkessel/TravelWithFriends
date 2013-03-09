@@ -10,5 +10,8 @@
 
 @interface TWFSocialFriendCell : UITableViewCell
 
-@property (strong, nonatomic)UILabel *name;
+@property (strong, nonatomic)UILabel *firstName;
+@property (strong, nonatomic)UILabel *lastName;
+@property (strong, nonatomic)UIImageView *profilePicView;
+
 @end
