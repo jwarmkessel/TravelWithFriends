@@ -16,6 +16,6 @@
 
 - (NSUInteger)countOfList;
 - (TWFSocialFriend *)objectInListAtIndex:(NSUInteger)theIndex;
-- (void)addFriendWithIdentiyNum:(NSString *)identityNum name:(NSString *)name profilePicUrl:(NSURL *)url;
+- (void)addFriendWithIdentiyNum:(NSString *)identityNum firstName:(NSString *)fName lastName:(NSString *)lName profilePicUrl:(NSString *)url;
 
 @end

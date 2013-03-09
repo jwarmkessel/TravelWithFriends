@@ -44,9 +44,9 @@
     return [self.socialFriendList objectAtIndex:theIndex];
 }
 
-- (void)addFriendWithIdentiyNum:(NSString *)identityNum name:(NSString *)name profilePicUrl:(NSURL *)url {
+- (void)addFriendWithIdentiyNum:(NSString *)identityNum firstName:(NSString *)fName lastName:(NSString *)lName profilePicUrl:(NSString *)url {
 
-    TWFSocialFriend *newFriend= [[TWFSocialFriend alloc] initWithId:identityNum name:name profilePicUrl:url];
+    TWFSocialFriend *newFriend= [[TWFSocialFriend alloc] initWithId:identityNum firstName:fName lastName:lName profilePicUrl:url];
     
     [self.socialFriendList addObject:newFriend];
 }

@@ -1,5 +1,5 @@
 //
-//  TWFSocialFriendCell.h
+//  TWFFriendSearchDisplayController.h
 //  TravelWithFriends
 //
 //  Created by Justin Warmkessel on 3/8/13.
@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TWFSocialFriendCell : UITableViewCell
+@interface TWFFriendSearchDisplayController : UISearchDisplayController
 
-@property (strong, nonatomic)UILabel *name;
 @end

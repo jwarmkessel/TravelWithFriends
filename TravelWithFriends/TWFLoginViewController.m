@@ -9,8 +9,7 @@
 #import "TWFLoginViewController.h"
 #import "TWFLoginView.h"
 #import "TWFAppDelegate.h"
-#import "TWFSocialFriendDataController.h"
-#import "TWFSocialFriendListViewController.h"
+#import "TWFSocialFriendListViewContainerViewController.h"
 
 @interface TWFLoginViewController ()
 - (void)handlefbButton:sender;
@@ -25,7 +24,6 @@
         //Set frame to the entire window size.
         self.view.frame = [[UIScreen mainScreen] bounds];
         [self.view setBackgroundColor:[UIColor clearColor]];
-        self.socialFriendDataController = [[TWFSocialFriendDataController alloc]init];
     }
     return self;
 }
@@ -60,10 +58,16 @@
 
 //Facebook connect. Then get and load list of friends.
 - (void)handlefbButton:sender {
+
+    //Initalize view controller that handles response data from facebook, the creation of the list of friends and related views.
+    TWFSocialFriendListViewContainerViewController * socialFriendListContainer = [[TWFSocialFriendListViewContainerViewController alloc] init];
+
     TWFAppDelegate *appDelegate = (TWFAppDelegate*) [[UIApplication sharedApplication] delegate];
     
-    NSMutableDictionary *friends = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"id, name, picture",@"fields",nil];
+    //Set the attributes desired from facebook.
+    NSMutableDictionary *friends = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"id, first_name, last_name, picture",@"fields",nil];
     
+    //Make a request for the list of friends.
     [appDelegate.socialFacebook
      getAppAccessTokenWithSuccess:^(NSString* success) {
          NSLog(@"Get token successful: %@", success);
@@ -76,30 +80,26 @@
                params:friends httpMethod:@"GET"
                needsLogin:NO
                success:^(id success) {
-                   NSMutableArray *friends = [[[NSMutableArray alloc]init] autorelease];
                    NSString *identity;
-                   NSString *name;
+                   NSString *firstName;
+                   NSString *lastName;
                    NSString *profilePicUrl;
+
 
                    NSArray *list = [success objectForKey:@"data"];
 
                    for (NSDictionary *data in list)
                    {
                        identity = [data objectForKey:@"id"];
-                       name = [data objectForKey:@"name"];
+                       firstName = [data objectForKey:@"first_name"];
+                       lastName = [data objectForKey:@"last_name"];
                        profilePicUrl = [[[data objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
-                       NSURL *url = [[NSURL alloc]initWithString:profilePicUrl];
-
                        
-                       [self.socialFriendDataController addFriendWithIdentiyNum:identity name:name profilePicUrl:url];
+                       //Add to the list of friends
+                       [socialFriendListContainer.socialFriendDataController addFriendWithIdentiyNum:identity firstName:firstName lastName:lastName profilePicUrl:profilePicUrl];
                    }
                    
-                   self.socialFriendListViewController = [[TWFSocialFriendListViewController alloc] initWithFriendsList:self.socialFriendDataController.socialFriendList];
-                   
-                
-                   [self.view addSubview:self.socialFriendListViewController.view];
-                   [self.view bringSubviewToFront:self.socialFriendListViewController.view];
-                   
+                   [self.view addSubview:socialFriendListContainer.view];
 
                }
                failure:^(NSError *error) {

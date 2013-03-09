@@ -7,6 +7,8 @@
 //
 
 #import "TWFSocialFriendListViewController.h"
+#import "TWFSocialFriend.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TWFSocialFriendListViewController ()
 
@@ -59,7 +61,24 @@
 //    static NSString *CellIdentifier = @"Cell";
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if ( cell == nil ) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        UILabel *nameTxt = [[UILabel alloc]initWithFrame:CGRectMake(10.0f, 10.0f, 320.0f, 35.0f)];
+        [cell addSubview:nameTxt];
+        [nameTxt setTag:1];
+    }
+    // Create a new Candy Object
+
+    TWFSocialFriend *friend = [self.socialFriendList objectAtIndex:indexPath.row];
+
+    // Configure the cell
+    UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
+    nameLabel.text = friend.firstName;
+    
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     // Configure the cell...
     

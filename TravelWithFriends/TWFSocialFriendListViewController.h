@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TWFFriendSearchDisplayController.h"
 
-@interface TWFSocialFriendListViewController : UITableViewController <UITableViewDelegate>
+@interface TWFSocialFriendListViewController : UITableViewController <UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (copy, nonatomic) NSMutableArray *socialFriendList;
+@property (strong, nonatomic) TWFFriendSearchDisplayController *friendSearchDisplayController;
 
 - (id)initWithFriendsList:(NSMutableArray *)socialFriendList;
 

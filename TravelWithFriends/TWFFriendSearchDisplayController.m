@@ -1,14 +1,13 @@
 //
-//  TWFSocialFriendCell.h
+//  TWFFriendSearchDisplayController.m
 //  TravelWithFriends
 //
 //  Created by Justin Warmkessel on 3/8/13.
 //  Copyright (c) 2013 Justin Warmkessel. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TWFFriendSearchDisplayController.h"
 
-@interface TWFSocialFriendCell : UITableViewCell
+@implementation TWFFriendSearchDisplayController
 
-@property (strong, nonatomic)UILabel *name;
 @end

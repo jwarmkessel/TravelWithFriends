@@ -11,9 +11,10 @@
 @interface TWFSocialFriend : NSObject
 
 @property (nonatomic, copy) NSString *identityNum;
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSURL *url;
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *lastName;
+@property (nonatomic, copy) NSString *url;
 
--(id)initWithId:(NSString *)identityNum name:(NSString *)name profilePicUrl:(NSURL *)url;
+-(id)initWithId:(NSString *)identityNum firstName:(NSString *)fName lastName:(NSString *)lName profilePicUrl:(NSString *)url;
 
 @end
