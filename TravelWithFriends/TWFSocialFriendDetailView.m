@@ -1,15 +1,15 @@
 //
-//  TWFLoginView.m
+//  TWFSocialFriendDetailView.m
 //  TravelWithFriends
 //
-//  Created by Justin Warmkessel on 3/4/13.
+//  Created by Justin Warmkessel on 3/9/13.
 //  Copyright (c) 2013 Justin Warmkessel. All rights reserved.
 //
 
-#import "TWFLoginView.h"
+#import "TWFSocialFriendDetailView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation TWFLoginView
+@implementation TWFSocialFriendDetailView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -23,7 +23,8 @@
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
+- (void)drawRect:(CGRect)rect
+{
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     
     //Gradient related variables

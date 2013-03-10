@@ -9,6 +9,7 @@
 #import "TWFSocialFriendListViewController.h"
 #import "TWFSocialFriend.h"
 #import "TWFSocialFriendCell.h"
+#import "TWFSocialFriendDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking.h>
 
@@ -184,15 +185,29 @@
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    TWFSocialFriendDetailViewController *detailViewController = [[TWFSocialFriendDetailViewController alloc] init];
+    [detailViewController.view setBackgroundColor:[UIColor greenColor]];
+    detailViewController.view.layer.frame = [[UIScreen mainScreen] bounds];
+
+    NSTimeInterval duration = 0.3;
+    
+    CATransition *applicationLoadViewIn =[CATransition animation];
+    [applicationLoadViewIn setDuration:duration];
+    [applicationLoadViewIn setType:kCATransitionReveal];
+    [applicationLoadViewIn setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [[self.view layer]addAnimation:applicationLoadViewIn forKey:kCATransitionReveal];
+    
+    [self.navigationController addChildViewController:self];
+    [self.view addSubview:detailViewController.view];
+    
      [detailViewController release];
-     */
 }
 
 #pragma mark - UISearchBarDelegate UISearchDisplayDelegate
