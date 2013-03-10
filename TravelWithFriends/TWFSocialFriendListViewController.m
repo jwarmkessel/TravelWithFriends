@@ -8,7 +8,9 @@
 
 #import "TWFSocialFriendListViewController.h"
 #import "TWFSocialFriend.h"
+#import "TWFSocialFriendCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import <AFNetworking.h>
 
 @interface TWFSocialFriendListViewController ()
 
@@ -90,6 +92,12 @@
     return theCount;
 }
 
+/*Use this method to alter the height of the table*/
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return 100.0f;
+//}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    static NSString *CellIdentifier = @"Cell";
@@ -99,10 +107,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if ( cell == nil ) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        UILabel *nameTxt = [[UILabel alloc]initWithFrame:CGRectMake(10.0f, 10.0f, 320.0f, 35.0f)];
-        [cell addSubview:nameTxt];
-        [nameTxt setTag:1];
+        
+        cell = [[TWFSocialFriendCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
    
     TWFSocialFriend *friend;
@@ -113,14 +119,20 @@
     } else {
         friend = [self.socialFriendList objectAtIndex:indexPath.row];
     }
-
-    // Configure the cell
-    UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
-    nameLabel.text = friend.firstName;
     
-    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    cell.textLabel.text = friend.firstName;
+    cell.detailTextLabel.text = friend.lastName;
     
-    // Configure the cell...
+    // thumbnail for this row is not found in cache, so get it from remote website
+    dispatch_queue_t imageQueue = dispatch_queue_create("queueForCellImage", NULL);
+    dispatch_async(imageQueue, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [cell.imageView setImageWithURL:[NSURL URLWithString:friend.url]];
+        });
+    });
+    dispatch_release(imageQueue);
+    
+//    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     return cell;
 }
@@ -166,6 +178,12 @@
 
 #pragma mark - Table view delegate
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath {
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
     /*
@@ -180,7 +198,6 @@
 #pragma mark - UISearchBarDelegate UISearchDisplayDelegate
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    NSLog(@"shouldReloadTableForSearchString");
     // Tells the table data source to reload when text changes
 
     // Tells the table data source to reload when text changes
@@ -189,11 +206,8 @@
     // Return YES to cause the search result table view to be reloaded.
     
     return YES;
-    
-    
 }
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    NSLog(@"shouldReloadTableForSearchScope");
     // Tells the table data source to reload when scope bar selection changes
 
     [self filterContentForSearchText:self.searchDisplayContr.searchBar.text scope:
@@ -203,7 +217,6 @@
     return YES;
 }
 - (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller {
-    NSLog(@"searchDisplayControllerDidBeginSearch");
 }
 
 #pragma mark Content Filtering
@@ -225,8 +238,6 @@
             [self.filteredFriendArray addObject:friend];
         }
     }
-
-    NSLog(@" new filtered array count %lu", (long int)[self.filteredFriendArray count]);
 }
 
 
