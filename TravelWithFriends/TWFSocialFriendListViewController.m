@@ -192,10 +192,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
     
-    TWFSocialFriendDetailViewController *detailViewController = [[TWFSocialFriendDetailViewController alloc] init];
+    //[detailViewController setFriend:[self.socialFriendList objectAtIndex:indexPath.row]];
+    TWFSocialFriendDetailViewController *detailViewController = [[TWFSocialFriendDetailViewController alloc] initWithFriend:[self.socialFriendList objectAtIndex:indexPath.row]];
     [detailViewController.view setBackgroundColor:[UIColor greenColor]];
     detailViewController.view.layer.frame = [[UIScreen mainScreen] bounds];
-
+    
     NSTimeInterval duration = 0.3;
     
     CATransition *applicationLoadViewIn =[CATransition animation];
