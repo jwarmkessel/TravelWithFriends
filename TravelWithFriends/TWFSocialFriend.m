@@ -24,4 +24,12 @@
     return nil;
 }
 
+-(void)dealloc {
+    [self.identityNum release], self.identityNum = nil;
+    [self.firstName release], self.firstName = nil;
+    [self.lastName release], self.firstName = nil;
+    [self.url release], self.firstName = nil;
+    
+    [super dealloc];
+}
 @end

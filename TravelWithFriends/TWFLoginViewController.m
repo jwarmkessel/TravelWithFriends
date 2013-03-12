@@ -47,7 +47,6 @@
     [fbButton setCenter:CGPointMake((_customView.frame.size.width/2), 44.0f)];
     [_customView addSubview:fbButton];
     [fbButton addTarget:self action:@selector(handlefbButton:) forControlEvents:UIControlEventTouchUpInside];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,9 +57,6 @@
 
 //Facebook connect. Then get and load list of friends.
 - (void)handlefbButton:sender {
-
-    //Initalize view controller that handles response data from facebook, the creation of the list of friends and related views.
-    TWFSocialFriendListViewContainerViewController * socialFriendListContainer = [[TWFSocialFriendListViewContainerViewController alloc] init];
 
     TWFAppDelegate *appDelegate = (TWFAppDelegate*) [[UIApplication sharedApplication] delegate];
     
@@ -87,19 +83,29 @@
 
 
                    NSArray *list = [success objectForKey:@"data"];
-
-                   for (NSDictionary *data in list)
-                   {
-                       identity = [data objectForKey:@"id"];
-                       firstName = [data objectForKey:@"first_name"];
-                       lastName = [data objectForKey:@"last_name"];
-                       profilePicUrl = [[[data objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
-                       
-                       //Add to the list of friends
-                       [socialFriendListContainer.socialFriendDataController addFriendWithIdentiyNum:identity firstName:firstName lastName:lastName profilePicUrl:profilePicUrl];
-                   }
                    
-                   [self.view addSubview:socialFriendListContainer.view];
+                   if([list count] != 0) {
+                       NSLog(@"Execute code");
+                       
+                       //Initalize view controller that handles response data from facebook, the creation of the list of friends and related views.
+                       TWFSocialFriendListViewContainerViewController * socialFriendListContainer = [[TWFSocialFriendListViewContainerViewController alloc] init];
+
+                       
+                       for (NSDictionary *data in list)
+                       {
+                           identity = [data objectForKey:@"id"];
+                           firstName = [data objectForKey:@"first_name"];
+                           lastName = [data objectForKey:@"last_name"];
+                           profilePicUrl = [[[data objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
+
+                           
+                           
+                           //Add to the list of friends
+                           [socialFriendListContainer.socialFriendDataController addFriendWithIdentiyNum:identity firstName:firstName lastName:lastName profilePicUrl:profilePicUrl];
+                       }
+                       
+                       [self.view addSubview:socialFriendListContainer.view];
+                   }
 
                }
                failure:^(NSError *error) {
@@ -124,4 +130,11 @@
     NSLog(@"Login finished");
 }
 
+- (void) dealloc {
+    [_customView release], _customView = nil;
+    [self.socialFriendDataController release], self.socialFriendDataController = nil;
+    [self.socialFriendListViewController release], self.socialFriendListViewController = nil;
+
+    [super dealloc];
+}
 @end

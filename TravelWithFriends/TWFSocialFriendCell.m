@@ -42,4 +42,12 @@
     self.detailTextLabel.frame = tmpFrame;
 }
 
+-(void)dealloc {
+    [self.firstName release], self.firstName = nil;
+    [self.lastName release], self.lastName = nil;
+    [self.profilePicView release], self.profilePicView = nil;
+    
+    [super dealloc];
+}
+
 @end

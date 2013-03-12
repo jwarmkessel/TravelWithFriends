@@ -51,4 +51,10 @@
     [self.socialFriendList addObject:newFriend];
 }
 
+- (void)dealloc {
+    [self.socialFriendList release], self.socialFriendList = nil;
+    
+    [super dealloc];
+}
+
 @end

@@ -38,12 +38,10 @@
     self.filteredFriendArray = [NSMutableArray arrayWithCapacity:[_socialFriendList count]];
     
 
-    UISearchBar * theSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,0,320,40)]; // frame has no effect.
+    UISearchBar * theSearchBar = [[[UISearchBar alloc] initWithFrame:CGRectMake(0,0,320,40)] autorelease]; // frame has no effect.
     theSearchBar.delegate = self;
-    //    if ( !searchBarPlaceHolder ) {
-    //        searchBarPlaceHolder = @"What are you looking for?";
-    //    }
-    theSearchBar.placeholder = @"blah";
+
+    theSearchBar.placeholder = @"Filter for a friend";
     theSearchBar.showsCancelButton = YES;
     
     
@@ -52,19 +50,17 @@
     [self.searchDisplayController setActive:YES animated:YES];
     [theSearchBar becomeFirstResponder];
     
-    UISearchDisplayController *searchCon = [[UISearchDisplayController alloc]
-                                            initWithSearchBar:theSearchBar
-                                            contentsController:self ];
-    self.searchDisplayContr = searchCon;
-    [searchCon release];
+ 
+    self.searchDisplayContr = [[UISearchDisplayController alloc]
+                              initWithSearchBar:theSearchBar
+                              contentsController:self];
+
+    
     self.searchDisplayContr.delegate = self;
     self.searchDisplayContr.searchResultsDataSource = self;
     self.searchDisplayContr.searchResultsDelegate = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,7 +105,7 @@
     
     if ( cell == nil ) {
         
-        cell = [[TWFSocialFriendCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[[TWFSocialFriendCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
    
     TWFSocialFriend *friend;
@@ -256,5 +252,12 @@
     }
 }
 
+- (void)dealloc {
+    [self.socialFriendList release], self.socialFriendList = nil;
+    [self.filteredFriendArray release], self.filteredFriendArray = nil;
+    [self.searchDisplayContr release], self.searchDisplayContr = nil;
+    
+    [super dealloc];
+}
 
 @end

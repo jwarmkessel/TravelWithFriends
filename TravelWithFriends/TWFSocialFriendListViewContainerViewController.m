@@ -18,10 +18,6 @@
     if (self) {
         //Initalize datacontroller and social friends table view.
         self.socialFriendDataController = [[TWFSocialFriendDataController alloc]init];
-        
-        self.socialFriendListViewController = [[TWFSocialFriendListViewController alloc] initWithFriendsList:self.socialFriendDataController.socialFriendList];
-        
-        //[self setSearchDisplayController:self.searchDisplayController];
     }
     return self;
 }
@@ -29,6 +25,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    self.socialFriendListViewController = [[TWFSocialFriendListViewController alloc] initWithFriendsList:self.socialFriendDataController.socialFriendList];
+    
+    //[self setSearchDisplayController:self.searchDisplayController];
 	// Do any additional setup after loading the view.
     [self.view addSubview:self.socialFriendListViewController.view];
     [self.view bringSubviewToFront:self.socialFriendListViewController.view];
@@ -40,6 +41,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [self.socialFriendDataController release], self.socialFriendDataController = nil;
+    [self.socialFriendListViewController release], self.socialFriendListViewController = nil;
+
+    [super dealloc];
 }
 
 @end

@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class TWFSocialFriend;
-
-@interface TWFSocialFriendDetailViewController : UIViewController
+@class TWFSocialFriendDetailView;
+@interface TWFSocialFriendDetailViewController : UIViewController {
+    TWFSocialFriendDetailView * _socialFriendDetailView;
+}
 
 @property (strong, nonatomic) UIImageView *profilePictureImageView;
 

@@ -11,7 +11,6 @@
 #import "TWFLoginViewController.h"
 
 @interface TWFMainViewController ()
-
 @end
 
 @implementation TWFMainViewController
@@ -19,9 +18,6 @@
 - (id)init {
     if (self) {
         
-        //Create login view and add to this container.
-        _loginViewController = [[TWFLoginViewController alloc] init];
-        [self.view addSubview:_loginViewController.view];
     }
     return self;
 }
@@ -29,11 +25,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    //Create login view and add to this container.
+    _loginViewController = [[TWFLoginViewController alloc] init];
+    [self.view addSubview:_loginViewController.view];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    
+    [_loginViewController release], _loginViewController = nil;
+    [super dealloc];
 }
 
 @end

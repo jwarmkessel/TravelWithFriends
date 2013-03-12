@@ -42,7 +42,6 @@
     myGradient = CGGradientCreateWithColorComponents(myColorSpace, colorList, locationList, locationCount);
     
     [self.layer setMasksToBounds:YES];
-    [self.layer setCornerRadius:5.0f];
     [self.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [self.layer setBorderWidth:1.5f];
     [self.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
