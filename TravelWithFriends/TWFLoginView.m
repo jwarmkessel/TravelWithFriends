@@ -20,7 +20,6 @@
     return self;
 }
 
-
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
@@ -34,7 +33,6 @@
     CGFloat colorList[8] = {
         1.0, 1.0, 1.0, 1.0,  // Start color
         0.2, 0.32, 0.6, 1.0   // End color
-        
     };
     
     myColorSpace = CGColorSpaceCreateDeviceRGB();
@@ -48,9 +46,7 @@
     [self.layer setShadowColor:[UIColor greenColor].CGColor];
     [self.layer setShadowOpacity:0.0];
     [self.layer setShadowRadius:3.0];
-    
-    
-    
+
     float startPoint = 0.0f;
     float endPoint = self.frame.size.width;
     
@@ -64,6 +60,8 @@
     
     CGContextDrawRadialGradient(ctx, myGradient, startRadius, startPoint, endRadius, endPoint, 0);
     CGGradientRelease(myGradient);
+
+    CGColorSpaceRelease(myColorSpace);
 }
 
 

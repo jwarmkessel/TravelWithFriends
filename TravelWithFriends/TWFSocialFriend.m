@@ -9,8 +9,15 @@
 #import "TWFSocialFriend.h"
 
 @implementation TWFSocialFriend
-@synthesize identityNum = _identityNum, firstName = _firstName, lastName = _lastName, url = _url;
 
+-(void)dealloc {
+    [_identityNum release], _identityNum = nil;
+    [_firstName release], _firstName = nil;
+    [_lastName release], _firstName = nil;
+    [_url release], _firstName = nil;
+    
+    [super dealloc];
+}
 -(id)initWithId:(NSString *)identityNum firstName:(NSString *)fName lastName:(NSString *)lName profilePicUrl:(NSString *)url {
     self = [super init];
     if (self) {
@@ -24,12 +31,5 @@
     return nil;
 }
 
--(void)dealloc {
-    [self.identityNum release], self.identityNum = nil;
-    [self.firstName release], self.firstName = nil;
-    [self.lastName release], self.firstName = nil;
-    [self.url release], self.firstName = nil;
-    
-    [super dealloc];
-}
+
 @end

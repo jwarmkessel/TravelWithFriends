@@ -14,29 +14,6 @@
 
 @implementation TWFSocialFriendListViewContainerViewController
 
-- (id)init {
-    if (self) {
-        //Initalize datacontroller and social friends table view.
-        self.socialFriendDataController = [[TWFSocialFriendDataController alloc]init];
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    
-    self.socialFriendListViewController = [[TWFSocialFriendListViewController alloc] initWithFriendsList:self.socialFriendDataController.socialFriendList];
-    
-    //[self setSearchDisplayController:self.searchDisplayController];
-	// Do any additional setup after loading the view.
-    [self.view addSubview:self.socialFriendListViewController.view];
-    [self.view bringSubviewToFront:self.socialFriendListViewController.view];
-    
-    
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -44,10 +21,27 @@
 }
 
 - (void)dealloc {
-    [self.socialFriendDataController release], self.socialFriendDataController = nil;
-    [self.socialFriendListViewController release], self.socialFriendListViewController = nil;
-
+    [_socialFriendListViewController release], _socialFriendListViewController = nil;
+    [_socialFriendList release], _socialFriendList = nil;
+    
     [super dealloc];
 }
 
+- (id)initWithFriendList:(NSMutableArray *)array {
+    self = [super init];
+    if (self) {
+        _socialFriendList = [[NSMutableArray alloc] initWithArray:array];
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    _socialFriendListViewController = [[TWFSocialFriendListViewController alloc] initWithFriendsList:_socialFriendList];
+    
+	// Do any additional setup after loading the view.
+    [self.view addSubview:_socialFriendListViewController.view];
+    [self.view bringSubviewToFront:_socialFriendListViewController.view];
+}
 @end

@@ -14,7 +14,6 @@
 @end
 
 @implementation TWFSocialFriendDataController
-@synthesize socialFriendList = _socialFriendList;
 
 - (id)init {
     if (self = [super init]) {
@@ -24,8 +23,23 @@
     return nil;
 }
 
++ (TWFSocialFriendDataController *)instance
+{
+static TWFSocialFriendDataController *instance = nil;
+
+@synchronized(self)
+{
+    if (instance == nil)
+    {
+        instance = [[TWFSocialFriendDataController alloc] init];
+    }
+}
+
+return instance;
+}
+
 - (void)initializeDefaultDataList {
-    self.socialFriendList= [[NSMutableArray alloc] init];
+    self.socialFriendList= [[[NSMutableArray alloc] init] autorelease];
 }
 
 - (void)setStayingFriendsList:(NSMutableArray *)newList {
@@ -46,13 +60,13 @@
 
 - (void)addFriendWithIdentiyNum:(NSString *)identityNum firstName:(NSString *)fName lastName:(NSString *)lName profilePicUrl:(NSString *)url {
 
-    TWFSocialFriend *newFriend= [[TWFSocialFriend alloc] initWithId:identityNum firstName:fName lastName:lName profilePicUrl:url];
+    TWFSocialFriend *newFriend= [[[TWFSocialFriend alloc] initWithId:identityNum firstName:fName lastName:lName profilePicUrl:url] autorelease];
     
     [self.socialFriendList addObject:newFriend];
 }
 
 - (void)dealloc {
-    [self.socialFriendList release], self.socialFriendList = nil;
+    [_socialFriendList release], _socialFriendList = nil;
     
     [super dealloc];
 }

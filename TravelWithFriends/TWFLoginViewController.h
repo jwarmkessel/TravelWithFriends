@@ -12,12 +12,14 @@
 @class TWFSocialFriendDataController;
 @class TWFLoginView;
 @class TWFSocialFriendListViewController;
+@class TWFSocialFriendListViewContainerViewController;
 
 @interface TWFLoginViewController : UIViewController {
     TWFLoginView *_customView;
 }
 
-@property (strong, nonatomic) TWFSocialFriendDataController *socialFriendDataController;
-@property (strong, nonatomic) TWFSocialFriendListViewController *socialFriendListViewController;
+@property (retain, nonatomic) TWFSocialFriendDataController *socialFriendDataController;
+@property (retain, nonatomic) TWFSocialFriendListViewController *socialFriendListViewController;
+@property (retain, nonatomic) TWFSocialFriendListViewContainerViewController *friendListViewContainerController;
 
 @end

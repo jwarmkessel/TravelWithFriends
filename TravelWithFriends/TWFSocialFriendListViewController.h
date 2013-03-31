@@ -12,9 +12,9 @@
 @interface TWFSocialFriendListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (copy, nonatomic) NSMutableArray *socialFriendList;
-@property (strong, nonatomic) NSMutableArray *filteredFriendArray;
-//@property (strong, nonatomic) TWFFriendSearchDisplayController *friendSearchDisplayController;
-@property (strong, nonatomic) UISearchDisplayController * searchDisplayContr;
+@property (retain, nonatomic) NSMutableArray *filteredFriendArray;
+//@property (retain, nonatomic) TWFFriendSearchDisplayController *friendSearchDisplayController;
+@property (retain, nonatomic) UISearchDisplayController * searchDisplayContr;
 
 - (id)initWithFriendsList:(NSMutableArray *)socialFriendList;
 

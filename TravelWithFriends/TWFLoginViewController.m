@@ -58,10 +58,12 @@
 //Facebook connect. Then get and load list of friends.
 - (void)handlefbButton:sender {
 
+    TWFSocialFriendDataController *dataController = [[[TWFSocialFriendDataController alloc] init] autorelease];
+    
     TWFAppDelegate *appDelegate = (TWFAppDelegate*) [[UIApplication sharedApplication] delegate];
     
     //Set the attributes desired from facebook.
-    NSMutableDictionary *friends = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"id, first_name, last_name, picture",@"fields",nil];
+        NSMutableDictionary *friends = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"id, first_name, last_name, picture",@"fields",nil];
     
     //Make a request for the list of friends.
     [appDelegate.socialFacebook
@@ -80,33 +82,23 @@
                    NSString *firstName;
                    NSString *lastName;
                    NSString *profilePicUrl;
-
-
                    NSArray *list = [success objectForKey:@"data"];
                    
                    if([list count] != 0) {
-                       NSLog(@"Execute code");
-                       
-                       //Initalize view controller that handles response data from facebook, the creation of the list of friends and related views.
-                       TWFSocialFriendListViewContainerViewController * socialFriendListContainer = [[TWFSocialFriendListViewContainerViewController alloc] init];
-
-                       
-                       for (NSDictionary *data in list)
-                       {
+                       for (NSDictionary *data in list) {
                            identity = [data objectForKey:@"id"];
                            firstName = [data objectForKey:@"first_name"];
                            lastName = [data objectForKey:@"last_name"];
                            profilePicUrl = [[[data objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
-
-                           
                            
                            //Add to the list of friends
-                           [socialFriendListContainer.socialFriendDataController addFriendWithIdentiyNum:identity firstName:firstName lastName:lastName profilePicUrl:profilePicUrl];
+                           [dataController addFriendWithIdentiyNum:identity firstName:firstName lastName:lastName profilePicUrl:profilePicUrl];
                        }
-                       
-                       [self.view addSubview:socialFriendListContainer.view];
-                   }
 
+                       //Initalize view controller that handles response data from facebook, the creation of the list of friends and related views.
+                       _friendListViewContainerController = [[TWFSocialFriendListViewContainerViewController alloc] initWithFriendList:dataController.socialFriendList];
+                       [self.view addSubview:_friendListViewContainerController.view];
+                   }
                }
                failure:^(NSError *error) {
                    NSLog(@"Request FB friends Error %@", error);
@@ -114,7 +106,6 @@
                cancel:^{
                    NSLog(@"cancelled FB friends Error");
                }];
-              
           }
           failure:^(BOOL finished) {
               NSLog(@"LoginWithSuccess Failed");
@@ -132,9 +123,10 @@
 
 - (void) dealloc {
     [_customView release], _customView = nil;
-    [self.socialFriendDataController release], self.socialFriendDataController = nil;
-    [self.socialFriendListViewController release], self.socialFriendListViewController = nil;
-
+    [_socialFriendDataController release], _socialFriendDataController = nil;
+    [_socialFriendListViewController release], _socialFriendListViewController = nil;
+    [_friendListViewContainerController release], _friendListViewContainerController = nil;
+    
     [super dealloc];
 }
 @end

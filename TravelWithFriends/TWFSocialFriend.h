@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *firstName;
 @property (nonatomic, copy) NSString *lastName;
 @property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) UIImageView *imageView;
 
 -(id)initWithId:(NSString *)identityNum firstName:(NSString *)fName lastName:(NSString *)lName profilePicUrl:(NSString *)url;
 

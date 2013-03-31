@@ -14,18 +14,18 @@
     TWFSocialFriendDetailView * _socialFriendDetailView;
 }
 
-@property (strong, nonatomic) UIImageView *profilePictureImageView;
+@property (retain, nonatomic) UIImageView *profilePictureImageView;
 
-@property (strong, nonatomic) UILabel *titleLabel;
-@property (strong, nonatomic) UILabel *firstNameLabel;
-@property (strong, nonatomic) UILabel *lastNameLabel;
-@property (strong, nonatomic) UILabel *statusLabel;
-@property (strong, nonatomic) UILabel *currentPositionLabel;
+@property (retain, nonatomic) UILabel *titleLabel;
+@property (retain, nonatomic) UILabel *firstNameLabel;
+@property (retain, nonatomic) UILabel *lastNameLabel;
+@property (retain, nonatomic) UILabel *statusLabel;
+@property (retain, nonatomic) UILabel *currentPositionLabel;
 
-@property (strong, nonatomic) UIButton *startCaravanBtn;
-@property (strong, nonatomic) UIButton *cancelBtn;
+@property (retain, nonatomic) UIButton *startCaravanBtn;
+@property (retain, nonatomic) UIButton *cancelBtn;
 
-@property (strong, nonatomic) TWFSocialFriend *friend;
+@property (retain, nonatomic) TWFSocialFriend *friend;
 
 - (id)initWithFriend:(TWFSocialFriend *)friend;
 

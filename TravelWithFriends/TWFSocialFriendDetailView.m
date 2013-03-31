@@ -64,6 +64,7 @@
     
     CGContextDrawRadialGradient(ctx, myGradient, startRadius, startPoint, endRadius, endPoint, 0);
     CGGradientRelease(myGradient);
+    CGColorSpaceRelease(myColorSpace);
 }
 
 

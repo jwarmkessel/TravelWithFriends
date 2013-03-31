@@ -11,7 +11,8 @@
 #import "TWFSocialFriendCell.h"
 #import "TWFSocialFriendDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import <AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+//#import <AFNetworking.h>
 
 @interface TWFSocialFriendListViewController ()
 
@@ -39,6 +40,7 @@
     
 
     UISearchBar * theSearchBar = [[[UISearchBar alloc] initWithFrame:CGRectMake(0,0,320,40)] autorelease]; // frame has no effect.
+
     theSearchBar.delegate = self;
 
     theSearchBar.placeholder = @"Filter for a friend";
@@ -47,13 +49,11 @@
     
     self.tableView.tableHeaderView = theSearchBar;
     
-    [self.searchDisplayController setActive:YES animated:YES];
-    [theSearchBar becomeFirstResponder];
-    
+    [self.searchDisplayController setActive:YES animated:YES];    
  
-    self.searchDisplayContr = [[UISearchDisplayController alloc]
+    self.searchDisplayContr = [[[UISearchDisplayController alloc]
                               initWithSearchBar:theSearchBar
-                              contentsController:self];
+                              contentsController:self] autorelease];
 
     
     self.searchDisplayContr.delegate = self;
@@ -120,16 +120,17 @@
     cell.textLabel.text = friend.firstName;
     cell.detailTextLabel.text = friend.lastName;
     
-    // thumbnail for this row is not found in cache, so get it from remote website
-    dispatch_queue_t imageQueue = dispatch_queue_create("queueForCellImage", NULL);
-    dispatch_async(imageQueue, ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [cell.imageView setImageWithURL:[NSURL URLWithString:friend.url]];
-        });
-    });
-    dispatch_release(imageQueue);
-    
-//    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:friend.url]
+               placeholderImage:[UIImage imageNamed:@"Facebook-connect-btn.jpg"] //This can't be nil... so dumb.
+                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                          if(!error) {
+                              NSLog(@"Image completed download");
+//                              dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                              [cell.imageView setImage:image];
+//                              });
+                          }
+                      }
+     ];
     
     return cell;
 }
@@ -253,9 +254,9 @@
 }
 
 - (void)dealloc {
-    [self.socialFriendList release], self.socialFriendList = nil;
-    [self.filteredFriendArray release], self.filteredFriendArray = nil;
-    [self.searchDisplayContr release], self.searchDisplayContr = nil;
+    [_socialFriendList release], _socialFriendList = nil;
+    [_filteredFriendArray release], _filteredFriendArray = nil;
+    [_searchDisplayContr release], _searchDisplayContr = nil;
     
     [super dealloc];
 }

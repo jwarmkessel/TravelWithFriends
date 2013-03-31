@@ -13,8 +13,8 @@
 
 @interface TWFAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) TWFMainViewController *mainViewController;
-@property (strong, atomic) SFSocialFacebook *socialFacebook;
+@property (retain, nonatomic) UIWindow *window;
+@property (retain, nonatomic) TWFMainViewController *mainViewController;
+@property (retain, atomic) SFSocialFacebook *socialFacebook;
 
 @end

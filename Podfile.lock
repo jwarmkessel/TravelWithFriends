@@ -1,21 +1,24 @@
 
-DEPENDENCIES: 
-- RestKit (~> 0.20.0rc1)
-- SFSocialFacebook (~> 1.2)
+SPEC CHECKSUMS: 
+  RestKit/Support: 0382132969d823a872b377c1ab2e383f3c74a339
+  RestKit/Core: 0382132969d823a872b377c1ab2e383f3c74a339
+  AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
+  RestKit/CoreData: 0382132969d823a872b377c1ab2e383f3c74a339
+  SOCKit: ed67aeeca4a697b63a933229e53f4670d5b9300f
+  SDWebImage/MapKit: 8082fe8d658ccafaaecd9e5ecda12ed01f09ba9c
+  RestKit: 0382132969d823a872b377c1ab2e383f3c74a339
+  SFSocialFacebook: 09d198ffd147c7d987a33ca89047317697261126
+  SBJson: 091a412fde93044baadf896e578dae726d347996
+  RestKit/ObjectMapping: 0382132969d823a872b377c1ab2e383f3c74a339
+  RestKit/Network: 0382132969d823a872b377c1ab2e383f3c74a339
+  SDWebImage: 8082fe8d658ccafaaecd9e5ecda12ed01f09ba9c
 
 COCOAPODS: 0.16.4
 
-SPEC CHECKSUMS: 
-  SFSocialFacebook: 09d198ffd147c7d987a33ca89047317697261126
-  RestKit/ObjectMapping: 0382132969d823a872b377c1ab2e383f3c74a339
-  SOCKit: ed67aeeca4a697b63a933229e53f4670d5b9300f
-  SBJson: 091a412fde93044baadf896e578dae726d347996
-  RestKit/Network: 0382132969d823a872b377c1ab2e383f3c74a339
-  AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
-  RestKit/CoreData: 0382132969d823a872b377c1ab2e383f3c74a339
-  RestKit/Core: 0382132969d823a872b377c1ab2e383f3c74a339
-  RestKit: 0382132969d823a872b377c1ab2e383f3c74a339
-  RestKit/Support: 0382132969d823a872b377c1ab2e383f3c74a339
+DEPENDENCIES: 
+- RestKit (~> 0.20.0rc1)
+- SDWebImage (~> 3.2)
+- SFSocialFacebook (~> 1.2)
 
 PODS: 
 - AFNetworking (1.1.0)
@@ -34,6 +37,9 @@ PODS:
 - RestKit/ObjectMapping (0.20.0rc1)
 - RestKit/Support (0.20.0rc1)
 - SBJson (3.0.4)
+- SDWebImage (3.2): 
+  - SDWebImage/MapKit (= 3.2)
+- SDWebImage/MapKit (3.2)
 - SFSocialFacebook (1.2.2): 
   - SBJson (~> 3.0.1)
 - SOCKit (1.1)

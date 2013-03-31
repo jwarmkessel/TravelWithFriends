@@ -11,6 +11,14 @@
 
 @implementation TWFSocialFriendCell
 
+-(void)dealloc {
+    [_firstName release], _firstName = nil;
+    [_lastName release], _lastName = nil;
+    [_profilePicView release], _profilePicView = nil;
+    
+    [super dealloc];
+}
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -42,12 +50,6 @@
     self.detailTextLabel.frame = tmpFrame;
 }
 
--(void)dealloc {
-    [self.firstName release], self.firstName = nil;
-    [self.lastName release], self.lastName = nil;
-    [self.profilePicView release], self.profilePicView = nil;
-    
-    [super dealloc];
-}
+
 
 @end

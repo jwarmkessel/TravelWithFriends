@@ -12,7 +12,7 @@
 
 @interface TWFSocialFriendListViewContainerViewController : UIViewController
 
-@property (strong, nonatomic) TWFSocialFriendDataController *socialFriendDataController;
-@property (strong, nonatomic) TWFSocialFriendListViewController * socialFriendListViewController;
-
+@property (retain, nonatomic) TWFSocialFriendListViewController *socialFriendListViewController;
+@property (retain, nonatomic) NSMutableArray *socialFriendList;
+- (id)initWithFriendList:(NSMutableArray *)array;
 @end

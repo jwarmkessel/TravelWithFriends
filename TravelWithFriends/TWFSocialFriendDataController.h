@@ -12,7 +12,7 @@
 
 @interface TWFSocialFriendDataController : NSObject
 
-@property (strong, nonatomic) NSMutableArray *socialFriendList;
+@property (retain, nonatomic) NSMutableArray *socialFriendList;
 
 - (NSUInteger)countOfList;
 - (TWFSocialFriend *)objectInListAtIndex:(NSUInteger)theIndex;
